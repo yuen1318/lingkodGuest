@@ -10,13 +10,12 @@ import { HttpClientService } from 'src/app/service/http-client.service';
 })
 export class GuestFormComponent implements OnInit {
 
-  private GUEST_LIST_URL = `https://spreadsheets.google.com/feeds/cells/1jRnXZpMuPl4s-l7TyKpc0QpIwIAEHKOAS7Vp2Y4tp18/1/public/full?alt=json`;
-  private EVENT_LIST_URL = `https://spreadsheets.google.com/feeds/cells/1fw0uh2FIX4EAMud_RbKZ84hz_yeGe1Kj87_EsJ8FMYE/1/public/full?alt=json`;
-  private GUEST_ATTENDANCE_URL =`https://docs.google.com/forms/d/e/1FAIpQLScnfsZ8J6fKtozzUsE2csEPATrGsXX2-Wi0lPLkuJ0998O6Bw/formResponse`;
-
-  private guestList: any = [];
-  private eventList: any = [];
-  private guestForm : FormGroup;
+   GUEST_LIST_URL = `https://spreadsheets.google.com/feeds/cells/1jRnXZpMuPl4s-l7TyKpc0QpIwIAEHKOAS7Vp2Y4tp18/1/public/full?alt=json`;
+   EVENT_LIST_URL = `https://spreadsheets.google.com/feeds/cells/1fw0uh2FIX4EAMud_RbKZ84hz_yeGe1Kj87_EsJ8FMYE/1/public/full?alt=json`;
+   GUEST_ATTENDANCE_URL =`https://docs.google.com/forms/d/e/1FAIpQLScnfsZ8J6fKtozzUsE2csEPATrGsXX2-Wi0lPLkuJ0998O6Bw/formResponse`;
+   guestList: any = [];
+   eventList: any = [];
+   guestForm : FormGroup;
 
   constructor(private apiService: HttpClientService,
               private fb: FormBuilder) { }
