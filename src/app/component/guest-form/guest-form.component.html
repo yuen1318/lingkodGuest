@@ -1,0 +1,43 @@
+<form [formGroup]="guestForm" (ngSubmit)="submitGuestForm(guestForm.value)" class="m-6">
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+    <div class="w-full md:w-1/2 px-3">
+
+      <label for="guest" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        Guest
+      </label>
+
+      <input id="guest" type="text" list="guestList" formControlName="guest" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Fullname">
+      <datalist id="guestList" >
+        <div *ngFor="let guest of guestList; index as i; ">
+          <option value="{{guest}}">
+        </div>
+      </datalist>
+
+    </div>
+
+    <div class="w-full md:w-1/2 px-3">
+      <label for="attendance" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+        Event
+      </label>
+
+      <select name="attendance" id="attendance" formControlName="attendance" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
+        <option *ngFor="let event of eventList" [ngValue]="event">
+          {{event.eventName }} ({{event.eventDate }})
+        </option>
+      </select>
+
+    </div>
+
+
+  </div>
+
+  <button [disabled]="guestForm.invalid" type="submit" class=" bg-transparent font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded" [ngClass]=" guestForm.invalid ? 'text-red-700 hover:bg-red-500 border-red-500' : 'text-blue-700 hover:bg-blue-500 border-blue-500' ">
+    Submit
+  </button>
+
+
+
+</form>
+
