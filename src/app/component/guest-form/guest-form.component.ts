@@ -34,9 +34,7 @@ export class GuestFormComponent implements OnInit {
   }
 
   submitGuestForm(formValues){
-    console.log(formValues.attendance.eventName);
     this.guestForm.reset();
-    console.warn('Your order has been submitted', formValues);
 
     let queryString = new HttpParams();
     queryString = queryString.append('usp', 'pp_url');
@@ -55,7 +53,6 @@ export class GuestFormComponent implements OnInit {
     }
 
     this.apiService.get(this.GUEST_ATTENDANCE_URL, httpOptions).subscribe((resp: HttpResponse<any>) => {
-      console.log(resp.body);
     },this.apiService.handleError);
 
   }
@@ -73,7 +70,6 @@ export class GuestFormComponent implements OnInit {
       let x = resp.body;
 
       totalRow = x.feed.gs$rowCount.$t;
-      console.log(totalRow);
 
       x.feed.entry.forEach(x => {
         rowColVal.push({
@@ -99,9 +95,8 @@ export class GuestFormComponent implements OnInit {
         this.eventList.push(obj);
       }
 
-    },this.apiService.handleError);
+    }, this.apiService.handleError);
 
-    console.log( this.eventList);
   }
 
 
@@ -117,7 +112,7 @@ export class GuestFormComponent implements OnInit {
 // col: 8 "Contact #"
 // col: 9 "Invited By"
 // col: 10 "Email Address"
-// col: 11 "Device"
+// col: 11 "Image"
 
     const httpOptions ={
       observe: 'response' as 'body'
@@ -155,7 +150,6 @@ export class GuestFormComponent implements OnInit {
 
      },this.apiService.handleError);
 
-      console.log( this.guestList);
   }
 
 }

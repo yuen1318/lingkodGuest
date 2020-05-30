@@ -1,0 +1,109 @@
+<div class="m-6 ">
+
+  <div class="bg-white shadow-lg overflow-hidden sm:rounded-lg">
+
+    <div class="p-4 border-b border-gray-300 flex justify-between">
+
+      <div>
+        <h3 class=" text-lg leading-6 font-medium text-gray-900">
+          Guest Information
+        </h3>
+      </div>
+
+      <div>
+        <button (click)="closeGuestDetail()" class="far fa-times-circle fa-lg text-red-500"></button>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap  ">
+
+
+      <div class="w-full lg:w-1/2 xl:w-1/2 justify-center ">
+
+        <div class="flex flex-wrap">
+
+          <div class=" w-full py-6 flex justify-center ">
+            <img class=" w-48 h-48 rounded-full shadow-lg" src="{{guestDetail.image}}">
+          </div>
+
+
+          <div class=" w-full py-6 flex justify-center">
+            <canvas class=" w-64 h-64 " id="canvas">
+              {{guestAttendanceGraph}}
+            </canvas>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="flex-1 w-full lg:w-auto xl:w-auto">
+        <dl>
+          <div class="bg-gray-100 px-4 py-5 flex flex-no-wrap">
+            <dt class="w-1/4 text-sm leading-5 font-medium text-gray-500">
+              Full name
+            </dt>
+            <dd class="w-3/4 mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {{guestDetail.name}}
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-5 flex flex-no-wrap">
+            <dt class="w-1/4 text-sm leading-5 font-medium text-gray-500">
+              Email
+            </dt>
+            <dd class="w-3/4 mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {{guestDetail.email}}
+            </dd>
+          </div>
+          <div class="bg-gray-100 px-4 py-5 flex flex-no-wrap">
+            <dt class="w-1/4 text-sm leading-5 font-medium text-gray-500">
+              Gender
+            </dt>
+            <dd class="w-3/4 mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {{guestDetail.gender}}
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-5 flex flex-no-wrap">
+            <dt class="w-1/4 w-1/4 text-sm leading-5 font-medium text-gray-500">
+              Birthdate
+            </dt>
+            <dd class="w-3/4 mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {{guestDetail.birthDate}}
+            </dd>
+          </div>
+          <div class="bg-gray-100 px-4 py-5 flex flex-no-wrap">
+            <dt class="w-1/4 text-sm leading-5 font-medium text-gray-500">
+              Invited by
+            </dt>
+            <dd class="w-3/4 mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {{guestDetail.invitedBy}}
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-5">
+            <dt class="text-sm leading-5 font-medium text-gray-500">
+              Attended Event
+            </dt>
+
+            <dd class="flex flex-wrap">
+
+              <div *ngFor="let events of guestDetail.eventList">
+                <span
+                  class=" inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2">
+                  {{events.eventName + " - " +  events.eventDate + " (" + events.eventType + ")"}}
+
+                </span>
+              </div>
+
+            </dd>
+
+          </div>
+        </dl>
+      </div>
+
+    </div>
+  </div>

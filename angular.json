@@ -23,7 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "/Users/yuenyalung/Desktop/lingkodGuest/node_modules/animate.css/animate.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
